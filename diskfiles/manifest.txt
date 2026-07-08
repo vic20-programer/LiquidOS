@@ -1,0 +1,13 @@
+LiquidOS milestones, in order:
+
+1. IDT - CPU exceptions stop triple-faulting silently
+2. PIC remap + PIT timer + keyboard IRQ
+3. Line editing - arrow keys, proper cursor handling
+4. Heap - real malloc/free with coalescing
+5. Cooperative multitasking
+6. Preemptive multitasking
+7. Task stack freeing - no more leaked stacks
+8. Disk I/O + LiquidFS - you are here
+
+Every file in this list, including itself, was read off disk through
+the ATA PIO driver, not compiled into the kernel image.

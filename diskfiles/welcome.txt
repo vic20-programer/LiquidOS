@@ -1,0 +1,10 @@
+Welcome to LiquidFS.
+
+This file lives on a separate disk image from the kernel itself - the
+kernel booted off the GRUB ISO (the CD-ROM drive), then used the ATA
+PIO driver in ata.h to read this text straight off the second drive,
+sector by sector, with no filesystem code running anywhere except the
+~150 lines in fs.h.
+
+If you're reading this inside QEMU, every word of it just traveled
+through a real (emulated) IDE controller.
