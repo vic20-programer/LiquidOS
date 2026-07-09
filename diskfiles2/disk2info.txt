@@ -1,0 +1,16 @@
+This is the SECOND LiquidFS disk, not the one the kernel auto-mounts
+at boot.
+
+It's attached at IDE index=3 in the Makefile's `run` target, which
+puts it on the secondary ATA bus (ports 0x170-0x177 / 0x376) in the
+slave position - drive index 3 in ata.h's numbering (0=primary master,
+1=primary slave, 2=secondary master, 3=secondary slave). The secondary
+bus's master position (index 2) is already taken by the GRUB boot ISO
+(QEMU's `-cdrom` always attaches there), so slave was the free slot
+that also happens to exercise the most: a different I/O port base AND
+the slave drive-select bit, both at once.
+
+If you're reading this through `cat`, you got here by running
+`mount 3` - proof that ata.h's drive switching and fs.h's mount()
+actually reach a second, physically distinct disk image, not just a
+second copy of the same one.

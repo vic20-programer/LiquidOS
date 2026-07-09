@@ -1,0 +1,7 @@
+This file lives on a USB mass storage device, mounted via real SCSI
+READ(10)/WRITE(10) commands over Bulk-Only Transport, through an EHCI
+controller this kernel brought up itself - no BIOS, no third-party
+driver, nothing but this project's own USB stack.
+
+If you're reading this through `cat`, LiquidFS just worked end to end
+on a USB stick.
